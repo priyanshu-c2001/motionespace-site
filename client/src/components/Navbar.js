@@ -54,21 +54,29 @@ const Navbar = () => {
           </div>
 
           {/* Burger Menu for Mobile */}
-          <div className="md:hidden">
+          <div className="md:hidden z-[60] relative">
             <button
               onClick={toggleMenu}
-              className="flex flex-col justify-center items-center w-10 h-10 space-y-1.5 focus:outline-none"
+              className="flex flex-col justify-center items-center w-10 h-10 focus:outline-none"
               aria-label="Toggle menu"
             >
-              <span
-                className={`block w-6 h-0.5 bg-white transform transition duration-300 ease-in-out ${isOpen ? "rotate-45 translate-y-2" : ""}`}
-              ></span>
-              <span
-                className={`block w-6 h-0.5 bg-white transform transition duration-300 ease-in-out ${isOpen ? "opacity-0" : "opacity-100"}`}
-              ></span>
-              <span
-                className={`block w-6 h-0.5 bg-white transform transition duration-300 ease-in-out ${isOpen ? "-rotate-45 -translate-y-2" : ""}`}
-              ></span>
+              <div className="relative w-6 h-6">
+                {/* First line - transforms to \ of the X */}
+                <span
+                  className={`absolute top-0.5 left-0 block w-6 h-0.5 bg-white transform transition-all duration-300 ease-in-out ${isOpen ? "rotate-45 translate-y-2.5" : ""
+                    }`}
+                ></span>
+                {/* Middle line - fades out */}
+                <span
+                  className={`absolute top-[11px] left-0 block w-6 h-0.5 bg-white transform transition-all duration-300 ease-in-out ${isOpen ? "opacity-0 translate-x-3" : "opacity-100"
+                    }`}
+                ></span>
+                {/* Last line - transforms to / of the X */}
+                <span
+                  className={`absolute bottom-0.5 left-0 block w-6 h-0.5 bg-white transform transition-all duration-300 ease-in-out ${isOpen ? "-rotate-45 -translate-y-2.5" : ""
+                    }`}
+                ></span>
+              </div>
             </button>
           </div>
 
@@ -97,16 +105,17 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - Slide from right */}
         <div
-          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-60 opacity-100" : "max-h-0 opacity-0"}`}
+          className={`fixed top-0 right-0 h-screen bg-black/95 backdrop-blur-sm w-64 z-50 transform transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "translate-x-full"
+            } md:hidden pt-24`}
         >
-          <div className="py-4 space-y-4">
+          <div className="flex flex-col space-y-8 px-8">
             {["Home", "Services", "Plans"].map((item, index) => (
               <Link
                 key={index}
                 to={item === "Home" ? `/` : `/${item.toLowerCase()}`}
-                className="block text-white hover:text-gray-300 px-3 py-2 text-sm font-bold uppercase tracking-wider"
+                className="text-white hover:text-[#c4a47c] text-lg font-bold uppercase tracking-wider border-b border-gray-800 pb-3 transition-colors duration-200"
                 onClick={toggleMenu}
               >
                 {item}
@@ -114,6 +123,9 @@ const Navbar = () => {
             ))}
           </div>
         </div>
+
+        {/* Overlay when menu is open */}
+        {isOpen && <div className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden" onClick={toggleMenu}></div>}
       </div>
     </div>
   )

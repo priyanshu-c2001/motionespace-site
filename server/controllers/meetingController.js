@@ -11,6 +11,7 @@ oAuth2Client.setCredentials({ refresh_token: process.env.REFRESH_TOKEN });
 const calendar = google.calendar({ version: "v3", auth: oAuth2Client });
 
 // Function to send email
+// Function to send email
 const sendMail = async (email, name, meetLink, date, timeSlots, service, pack, description, phone) => {
     const transporter = nodemailer.createTransport({
         service: "gmail",
@@ -23,22 +24,29 @@ const sendMail = async (email, name, meetLink, date, timeSlots, service, pack, d
     const mailOptions = {
         from: process.env.EMAIL,
         to: [email, process.env.OWNER_EMAIL],
-        subject: "Meeting Scheduled",
+        subject: "Booking Confirmed – Your motionespace",
         text: `
-Hello ${name},
+Hi ${name},
 
-Your Google Meet is scheduled.
+Thank you for booking with motionespace! We’re excited to collaborate with you and bring your brand vision to life.
 
-📅 Date: ${date}
-⏰ Time Slots: ${timeSlots.join(", ")}
-📞 Phone (WhatsApp): ${phone}
-📝 Description: ${description}
-🔖 Service: ${service}
-💼 Package: ${pack}
+Here are the details of your scheduled session:
 
-Join here: ${meetLink}
+Package Chosen: ${pack}
+Service(s) Selected: ${service}
+Date: ${date}
+Time Slot: ${timeSlots.join(", ")}
+Contact Number: ${phone}
+Meeting Link: ${meetLink}
 
-Thanks!
+Please ensure that you're available during the selected slot and join the meeting on time to avoid delays in project initiation.
+
+If you'd like to modify your booking or have any specific material you'd like us to review before the meeting (e.g., product references, brand guidelines, or sample inspirations), feel free to reply to this email.
+
+We truly appreciate the opportunity to work with you and look forward to delivering visuals that exceed your expectations.
+
+Warm regards,  
+Team motionespace
         `
     };
 

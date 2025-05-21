@@ -1,39 +1,30 @@
-import { OrbitControls } from "@react-three/drei";
-import { Canvas } from "@react-three/fiber";
-import React from "react";
-import Cyl from "./Cyl";
-import { EffectComposer, ToneMapping } from "@react-three/postprocessing";
-import { Bloom } from "@react-three/postprocessing";
+import { OrbitControls } from "@react-three/drei"
+import { Canvas } from "@react-three/fiber"
+import Cyl from "./Cyl"
+import { EffectComposer, ToneMapping } from "@react-three/postprocessing"
+import { Bloom } from "@react-three/postprocessing"
 
 const Service = () => {
   return (
     <div className="bg-black h-screen w-screen overflow-x-hidden relative">
       <Canvas flat camera={{ fov: 25 }}>
-        <OrbitControls
-          enablePan={false} // Disable panning
-          enableZoom={false} // Disable zooming, if you don't want it
-          autoRotate={false} // Turn off automatic rotation
-        />        <ambientLight />
+        <OrbitControls enablePan={false} enableZoom={false} autoRotate={false} />
+        <ambientLight />
         <Cyl />
         <EffectComposer>
-          <Bloom
-            intensity={19.0} // The bloom intensity.
-            luminanceThreshold={0} // luminance threshold. Raise this value to mask out darker elements in the scene.
-            luminanceSmoothing={0.9} // smoothness of the luminance threshold. Range is [0, 1]
-            mipmapBlur={true} // Enables or disables mipmap blur.
-
-          />
+          <Bloom intensity={19.0} luminanceThreshold={0} luminanceSmoothing={0.9} mipmapBlur={true} />
           <ToneMapping adaptive />
         </EffectComposer>
       </Canvas>
-      <marquee
-        className="text-white text-8xl font-sans font-bold absolute top-[88%] z-10 left-0 w-full text-center opacity-80"
-        scrollamount="12"
-      >
-        <h3>Bookings Are Open Hurry Now!</h3>
-      </marquee>
+      <div className="absolute top-[88%] z-10 left-0 w-full text-center opacity-80 overflow-hidden">
+        <div className="whitespace-nowrap animate-marquee">
+          <h3 className="text-white text-4xl md:text-6xl lg:text-8xl font-sans font-bold">
+            Bookings Are Open Hurry Now!
+          </h3>
+        </div>
+      </div>
     </div>
-  );
-};
+  )
+}
 
-export default Service;
+export default Service

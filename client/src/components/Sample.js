@@ -125,7 +125,7 @@ const Sample = () => {
 
       <div
         ref={galleryRef}
-        className="flex items-center h-screen px-20 pt-20 pb-10 will-change-transform"
+        className="flex items-center h-screen pt-20 pb-10 will-change-transform"
         style={{ width: `${videos.length * 400 + 100}px` }}
       >
         {videos.map((video) => (
