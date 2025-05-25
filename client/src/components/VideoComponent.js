@@ -53,7 +53,7 @@ const VideoComponent = () => {
                 id="vid-container"
                 className="fixed top-0 left-0 w-full h-screen flex justify-center items-center overflow-hidden"
             >
-                <video id="vid" autoPlay muted loop className="w-full h-full object-cover">
+                <video id="vid" autoPlay muted loop playsInline className="w-full h-full object-cover">
                     <source src={Boatparty} />
                     Your browser does not support the video tag.
                 </video>

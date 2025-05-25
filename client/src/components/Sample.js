@@ -73,14 +73,14 @@ const Sample = () => {
       title: "Cinematic Commercial",
       description: "Luxury brand promotion with stunning visuals",
       duration: "0:45",
-      videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
+      videoUrl: "https://res.cloudinary.com/dof7yblai/video/upload/v1747895249/Sequence_01_cq8dxe.mp4",
     },
     {
       id: 2,
       title: "Product Animation",
       description: "3D product showcase with detailed animation",
       duration: "0:30",
-      videoUrl: "https://www.w3schools.com/html/movie.mp4",
+      videoUrl: "https://res.cloudinary.com/dof7yblai/video/upload/v1747895342/Finaaallll_Clothing_ibw7qq.mp4",
     },
     {
       id: 3,

@@ -7,8 +7,8 @@ import { ArrowLeft, Code, Paintbrush, Video, Zap } from "lucide-react"
 const services = [
   {
     id: 1,
-    title: "Web Development",
-    description: "Custom websites and web applications built with modern technologies.",
+    title: "Graphic Designing",
+    description: "Professional graphic design services for all your branding needs.",
     icon: <Code className="h-10 w-10 text-[#c4a47c]" />,
     videos: [
       { id: 1, title: "React Portfolio Website", url: "https://www.youtube.com/embed/bmpI252DmiI" },
@@ -21,8 +21,8 @@ const services = [
   },
   {
     id: 2,
-    title: "UI/UX Design",
-    description: "Beautiful, intuitive designs that enhance user experience.",
+    title: "Motion Graphics",
+    description: "Engaging motion graphics to bring your ideas to life.",
     icon: <Paintbrush className="h-10 w-10 text-[#c4a47c]" />,
     videos: [
       { id: 1, title: "Mobile App Design", url: "https://www.youtube.com/embed/c9Wg6Cb_YlU" },
@@ -35,8 +35,8 @@ const services = [
   },
   {
     id: 3,
-    title: "Video Production",
-    description: "High-quality video content for marketing and education.",
+    title: "3D Model",
+    description: "Detailed 3D modeling services for products and concepts.",
     icon: <Video className="h-10 w-10 text-[#c4a47c]" />,
     videos: [
       { id: 1, title: "Corporate Promo", url: "https://www.youtube.com/embed/rokGy0huYEA" },
@@ -49,8 +49,8 @@ const services = [
   },
   {
     id: 4,
-    title: "Performance Optimization",
-    description: "Speed up your digital products for better user experience.",
+    title: "3D Product Animation",
+    description: "Short animations to showcase your products",
     icon: <Zap className="h-10 w-10 text-[#c4a47c]" />,
     videos: [
       { id: 1, title: "Website Speed Optimization", url: "https://www.youtube.com/embed/AQqFZ5t8uNc" },
@@ -132,7 +132,7 @@ const Services = () => {
                 <ArrowLeft className="h-5 w-5" />
               </button>
               <h2 className="text-2xl font-bold text-[#c4a47c]">
-                {services.find((s) => s.id === selectedService)?.title} Videos
+                {services.find((s) => s.id === selectedService)?.title} Works
               </h2>
             </div>
 
