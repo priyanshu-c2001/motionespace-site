@@ -3,9 +3,11 @@
 import { useState } from "react"
 import { Clock, ChevronRight, ChevronLeft, ArrowLeft } from "lucide-react"
 import { format } from "date-fns"
+import {useNavigate} from "react-router-dom"
 
 const Form = ({ service, pack, onBack }) => {
-  const [step, setStep] = useState(1)
+  const navigate=useNavigate();
+  const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -41,7 +43,7 @@ const Form = ({ service, pack, onBack }) => {
 
     const data = await response.json()
     if (data.success) {
-      alert(`Meeting Scheduled! Join here: ${data.meetLink}`)
+      navigate('/')
     } else {
       alert("Error scheduling meeting")
     }
